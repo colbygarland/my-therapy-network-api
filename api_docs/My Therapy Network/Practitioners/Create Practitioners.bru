@@ -1,0 +1,22 @@
+meta {
+  name: Create Practitioners
+  type: http
+  seq: 5
+}
+
+post {
+  url: {{baseUrl}}/practitioners
+  body: multipartForm
+  auth: none
+}
+
+headers {
+  Content-Type: multipart/form-data
+  User-Agent: insomnia/10.3.1
+}
+
+body:multipart-form {
+  name: Jerry Seinfeld
+  email: jerry.seinfeld@kramericaindustries.com
+  phone: 780-123-4567
+}
