@@ -1,11 +1,11 @@
 meta {
-  name: Create Availability
+  name: Create
   type: http
   seq: 5
 }
 
 post {
-  url: {{baseUrl}}/availability
+  url: {{baseUrl}}/practition-types
   body: multipartForm
   auth: none
 }
@@ -16,8 +16,5 @@ headers {
 }
 
 body:multipart-form {
-  practitioner_id: 1
-  start_at: 2025-03-06T21:00:00Z
-  end_at: 2025-03-06T22:00:00Z
-  practition_type_id: 1
+  type: Massage Therapy
 }

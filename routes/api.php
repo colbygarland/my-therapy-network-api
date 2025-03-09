@@ -6,6 +6,7 @@ use App\Http\Controllers\PatientController;
 use App\Http\Controllers\PractitionerAvailabilityController;
 use App\Http\Controllers\PractitionerController;
 use App\Http\Controllers\PractitionerTypeController;
+use App\Http\Controllers\PractitionTypeController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -39,6 +40,7 @@ Route::controller(PatientController::class)->group(function () {
 Route::controller(PractitionerAvailabilityController::class)->group(function () {
     Route::get('/availability', 'list');
     Route::post('/availability', 'create');
+    Route::get('/availability/{id}', 'get');
     Route::patch('/availability/{id}', 'edit');
     Route::delete('/availability/{id}', 'delete');
 });
@@ -55,4 +57,11 @@ Route::controller(PractitionerTypeController::class)->group(function () {
     Route::post('/practitioner-types', 'create');
     Route::patch('/practitioner-types/{id}', 'edit');
     Route::delete('/practitioner-types/{id}', 'delete');
+});
+
+Route::controller(PractitionTypeController::class)->group(function () {
+    Route::get('/practition-types', 'list');
+    Route::post('/practition-types', 'create');
+    Route::patch('/practition-types/{id}', 'edit');
+    Route::delete('/practition-types/{id}', 'delete');
 });

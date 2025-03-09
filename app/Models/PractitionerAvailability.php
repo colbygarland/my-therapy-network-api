@@ -15,5 +15,26 @@ class PractitionerAvailability extends Model
         'practitioner_id',
         'start_at',
         'end_at',
+        'practition_type_id',
     ];
+
+    protected $dates = [
+        'start_at',
+        'end_at',
+    ];
+
+    protected $appends = [
+        'practitioner',
+        'practition_type',
+    ];
+
+    protected function getPractitionerAttribute()
+    {
+        return Practitioner::find($this->practitioner_id);
+    }
+
+    protected function getPractitionTypeAttribute()
+    {
+        return PractitionType::find($this->practition_type_id);
+    }
 }

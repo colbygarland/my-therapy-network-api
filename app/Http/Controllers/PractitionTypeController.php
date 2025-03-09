@@ -2,25 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\PractitionerType;
+use App\Models\PractitionType;
 use Exception;
 use Illuminate\Http\Request;
 
-class PractitionerTypeController extends Controller
+class PractitionTypeController extends Controller
 {
     public function list()
     {
-        PractitionerType::$withoutAppends = true;
-
         return response()->json([
-            'data' => PractitionerType::all(),
-            'count' => PractitionerType::count(),
+            'data' => PractitionType::all(),
+            'count' => PractitionType::count(),
         ]);
     }
 
     public function create(Request $request)
     {
-        $practitionerType = new PractitionerType;
+        $practitionerType = new PractitionType;
         $practitionerType->fill($request->all());
         $practitionerType->save();
 

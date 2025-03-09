@@ -6,10 +6,18 @@ meta {
 
 get {
   url: {{baseUrl}}/availability
-  body: none
+  body: formUrlEncoded
   auth: none
+}
+
+params:query {
+  : 
 }
 
 headers {
   User-Agent: insomnia/10.3.1
+}
+
+body:form-urlencoded {
+  ~with_trashed: 1
 }
