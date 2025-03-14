@@ -13,14 +13,19 @@ class PractitionerAvailabilityController extends Controller
     {
         $date = $request->date;
         $withTrashed = $request->with_trashed;
+        $practitionType = $request->practition_type_id;
+
         $data = PractitionerAvailability::when($date, function ($query, $date) {
             $date = Carbon::parse($date);
 
             return $query->whereDate('start_at', '<=', $date)
                 ->whereDate('end_at', '>=', $date);
-        })->when($withTrashed, function ($query) {
-            return $query->withTrashed();
-        })->get();
+        })->when($practitionType, function ($query, $practitionType) {
+            return $query->where('practition_type_id', $practitionType);
+        })
+            ->when($withTrashed, function ($query) {
+                return $query->withTrashed();
+            })->get();
 
         return response()->json($data);
     }
