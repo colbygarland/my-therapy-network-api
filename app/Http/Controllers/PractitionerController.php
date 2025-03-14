@@ -9,12 +9,7 @@ class PractitionerController extends Controller
 {
     public function list()
     {
-        return response()->json([
-            'data' => [
-                'practitioners' => Practitioner::all(),
-                'count' => Practitioner::count(),
-            ],
-        ]);
+        return response()->json(Practitioner::all());
     }
 
     public function create(Request $request)

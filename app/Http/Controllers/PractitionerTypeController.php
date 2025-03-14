@@ -12,10 +12,7 @@ class PractitionerTypeController extends Controller
     {
         PractitionerType::$withoutAppends = true;
 
-        return response()->json([
-            'data' => PractitionerType::all(),
-            'count' => PractitionerType::count(),
-        ]);
+        return response()->json(PractitionerType::all());
     }
 
     public function create(Request $request)

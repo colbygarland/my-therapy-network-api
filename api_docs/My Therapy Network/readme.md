@@ -1,0 +1,11 @@
+# My Therapy Network API Docs 
+
+## Quickstart
+
+To create an "availability", we do the following:
+
+1. Get a practitioner
+1. You can either create a new one, or grab an existing one if you know their `practitioner_id`
+1. To create a new one, use the `Create` call under the `Practitioners` folder
+1. To list, use the `List` call under the `Practitioners` folder
+1. You will also need the `practition_type_id`, which you can get by using the `List` call under the `Practition Types` folder

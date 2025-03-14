@@ -10,10 +10,7 @@ class PractitionTypeController extends Controller
 {
     public function list()
     {
-        return response()->json([
-            'data' => PractitionType::all(),
-            'count' => PractitionType::count(),
-        ]);
+        return response()->json(PractitionType::all());
     }
 
     public function create(Request $request)

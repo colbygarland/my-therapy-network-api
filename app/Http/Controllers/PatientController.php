@@ -9,12 +9,7 @@ class PatientController extends Controller
 {
     public function list()
     {
-        return response()->json([
-            'data' => [
-                'patients' => Patient::all(),
-                'count' => Patient::count(),
-            ],
-        ]);
+        return response()->json(Patient::all());
     }
 
     public function create(Request $request)

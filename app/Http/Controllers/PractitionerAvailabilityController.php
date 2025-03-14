@@ -4,18 +4,25 @@ namespace App\Http\Controllers;
 
 use App\Models\PractitionerAvailability;
 use App\Models\PractitionerType;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PractitionerAvailabilityController extends Controller
 {
     public function list(Request $request)
     {
-        $data = $request->with_trashed ? PractitionerAvailability::withTrashed()->get() : PractitionerAvailability::all();
+        $date = $request->date;
+        $withTrashed = $request->with_trashed;
+        $data = PractitionerAvailability::when($date, function ($query, $date) {
+            $date = Carbon::parse($date);
 
-        return response()->json([
-            'data' => $data,
-            'count' => PractitionerAvailability::count(),
-        ]);
+            return $query->whereDate('start_at', '<=', $date)
+                ->whereDate('end_at', '>=', $date);
+        })->when($withTrashed, function ($query) {
+            return $query->withTrashed();
+        })->get();
+
+        return response()->json($data);
     }
 
     public function create(Request $request)

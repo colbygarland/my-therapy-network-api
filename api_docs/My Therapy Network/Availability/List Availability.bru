@@ -5,19 +5,16 @@ meta {
 }
 
 get {
-  url: {{baseUrl}}/availability
+  url: {{baseUrl}}/availability?with_trashed=1
   body: formUrlEncoded
   auth: none
 }
 
 params:query {
-  : 
+  with_trashed: 1
+  ~date: 2025-03-14T01:54:19.992000Z
 }
 
 headers {
   User-Agent: insomnia/10.3.1
-}
-
-body:form-urlencoded {
-  ~with_trashed: 1
 }
