@@ -1,0 +1,20 @@
+meta {
+  name: Find
+  type: http
+  seq: 6
+}
+
+get {
+  url: {{baseUrl}}/patients/find?email=colbygarland@gmail.com&phone=7808824742
+  body: none
+  auth: none
+}
+
+params:query {
+  email: colbygarland@gmail.com
+  phone: 7808824742
+}
+
+headers {
+  User-Agent: insomnia/10.3.1
+}

@@ -43,7 +43,7 @@ class PractitionerAvailabilityController extends Controller
         $practitionerAvailability->save();
 
         return response()->json([
-            'data' => $practitionerAvailability,
+            $practitionerAvailability,
             'message' => 'Practitioner availability created successfully',
         ]);
     }
@@ -52,9 +52,7 @@ class PractitionerAvailabilityController extends Controller
     {
         $practitionerAvailability = PractitionerAvailability::find($id);
 
-        return response()->json([
-            'data' => $practitionerAvailability,
-        ]);
+        return response()->json($practitionerAvailability);
     }
 
     public function edit() {}

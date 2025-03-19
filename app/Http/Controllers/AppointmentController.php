@@ -2,11 +2,22 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\CreateAppointmentRequest;
+use App\Models\Appointment;
+
 class AppointmentController extends Controller
 {
-    public function list() {}
+    public function list()
+    {
+        $data = Appointment::get();
 
-    public function create() {}
+        return response()->json($data);
+    }
+
+    public function create(CreateAppointmentRequest $request)
+    {
+        $appointment = new Appointment;
+    }
 
     public function edit() {}
 

@@ -33,6 +33,8 @@ Route::controller(CompanyController::class)->group(function () {
 Route::controller(PatientController::class)->group(function () {
     Route::get('/patients', 'list');
     Route::post('/patients', 'create');
+    Route::get('/patients/get/{id}', 'get');
+    Route::get('/patients/find', 'find');
     Route::patch('/patients/{user_id}', 'edit');
     Route::delete('/patients/{user_id}', 'delete');
 });
